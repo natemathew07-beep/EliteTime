@@ -391,18 +391,6 @@ const products = {
     category: "moissanite",
     badge: "Top Tier"
 },
-   "moissanite_silver_minimal": {
-  id: "moissanite_silver_minimal",
-  name: "Iced Silver Minimal",
-  price: 600,
-  description: "Clean minimal dial paired with full moissanite setting for a refined iced look. Subtle, elegant, and built for everyday luxury.",
-  images: ["moissanite_silver_minimal_main.jpeg"],
-  stock: 3,
-  reviews: 44,
-  sold: 19,
-  category: "moissanite",
-  badge: "Clean Iced"
-},
 };
 
 /* =============================================
