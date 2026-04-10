@@ -391,6 +391,42 @@ const products = {
     category: "moissanite",
     badge: "Top Tier"
 },
+   "royal_oak_blue_classic": {
+  id: "royal_oak_blue_classic",
+  name: "Blue Dial Royal Oak",
+  price: 110,
+  description: "Iconic Royal Oak design featuring a textured blue dial and brushed stainless steel finish. Clean, timeless, and built for everyday luxury.",
+  images: ["royal_oak_blue_classic_main.jpeg"],
+  stock: 3,
+  reviews: 38,
+  sold: 16,
+  category: "royal_oak",
+  badge: "Luxury Classic"
+},
+   "royal_oak_black_classic": {
+  id: "royal_oak_black_classic",
+  name: "Black Dial Royal Oak",
+  price: 110,
+  description: "Clean black textured dial paired with brushed stainless steel Royal Oak design. A sleek, versatile luxury piece built for everyday wear.",
+  images: ["royal_oak_black_classic_main.jpeg"],
+  stock: 3,
+  reviews: 34,
+  sold: 14,
+  category: "royal_oak",
+  badge: "Luxury Classic"
+},
+   "royal_oak_white_classic": {
+  id: "royal_oak_white_classic",
+  name: "White Dial Royal Oak",
+  price: 110,
+  description: "Crisp white textured dial paired with a brushed stainless steel Royal Oak design. Clean, minimal, and effortlessly premium.",
+  images: ["royal_oak_white_classic_main.jpeg", "royal_oak_white_classic_1.jpeg", "royal_oak_white_classic_2.jpeg"],
+  stock: 3,
+  reviews: 31,
+  sold: 12,
+  category: "royal_oak",
+  badge: "Luxury Classic"
+},
 };
 
 /* =============================================
