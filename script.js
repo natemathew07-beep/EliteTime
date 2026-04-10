@@ -463,17 +463,17 @@ const products = {
   category: "royal_oak",
   badge: "Premium Pick"
 },
-   royal_oak_gold_white {
-  id royal_oak_gold_white,
-  name Gold White Royal Oak,
-  price 110,
-  description Elegant gold finish paired with a crisp white textured dial. A refined Royal Oak designed for a clean and luxurious everyday look.,
-  images [royal_oak_gold_white_main.jpeg],
-  stock 2,
-  reviews 20,
-  sold 8,
-  category royal_oak,
-  badge Premium Pick
+   "royal_oak_gold_white": {
+  id: "royal_oak_gold_white",
+  name: "Gold White Royal Oak",
+  price: 110,
+  description: "Elegant gold finish paired with a crisp white textured dial. A refined Royal Oak designed for a clean and luxurious everyday look.",
+  images: ["royal_oak_gold_white_main.jpeg"],
+  stock: 2,
+  reviews: 20,
+  sold: 8,
+  category: "royal_oak",
+  badge: "Premium Pick"
 },
 "royal_oak_rose_gold_leather": {
   id: "royal_oak_rose_gold_leather",
