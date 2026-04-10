@@ -427,6 +427,78 @@ const products = {
   category: "royal_oak",
   badge: "Luxury Classic"
 },
+   "royal_oak_grey_classic": {
+  id: "royal_oak_grey_classic",
+  name: "Grey Dial Royal Oak",
+  price: 110,
+  description: "Refined grey textured dial paired with the iconic brushed stainless steel Royal Oak design. A perfect balance between bold and minimal.",
+  images: ["royal_oak_grey_classic_main.jpeg", "royal_oak_grey_classic_1.jpeg", "royal_oak_grey_classic_2.jpeg"],
+  stock: 3,
+  reviews: 29,
+  sold: 11,
+  category: "royal_oak",
+  badge: "Luxury Classic"
+},
+   "royal_oak_gold_blue": {
+  id: "royal_oak_gold_blue",
+  name: "Gold Blue Royal Oak",
+  price: 110,
+  description: "Bold gold finish paired with a deep blue textured dial. A statement Royal Oak built for those who want standout luxury with timeless design.",
+  images: ["royal_oak_gold_blue_main.jpeg"],
+  stock: 2,
+  reviews: 22,
+  sold: 9,
+  category: "royal_oak",
+  badge: "Premium Pick"
+},
+   "royal_oak_gold_black": {
+  id: "royal_oak_gold_black",
+  name: "Gold Black Royal Oak",
+  price: 110,
+  description: "Striking gold finish paired with a deep black textured dial. A bold Royal Oak built for a sleek and powerful luxury look.",
+  images: ["royal_oak_gold_black_main.jpeg"],
+  stock: 2,
+  reviews: 24,
+  sold: 10,
+  category: "royal_oak",
+  badge: "Premium Pick"
+},
+   royal_oak_gold_white {
+  id royal_oak_gold_white,
+  name Gold White Royal Oak,
+  price 110,
+  description Elegant gold finish paired with a crisp white textured dial. A refined Royal Oak designed for a clean and luxurious everyday look.,
+  images [royal_oak_gold_white_main.jpeg],
+  stock 2,
+  reviews 20,
+  sold 8,
+  category royal_oak,
+  badge Premium Pick
+},
+"royal_oak_rose_gold_leather": {
+  id: "royal_oak_rose_gold_leather",
+  name: "Rose Gold Leather Royal Oak",
+  price: 110,
+  description: "Elegant rose gold Royal Oak paired with a premium brown leather strap and crisp white textured dial. A refined take on classic luxury.",
+  images: ["royal_oak_rose_gold_leather_main.jpeg"],
+  stock: 2,
+  reviews: 18,
+  sold: 7,
+  category: "royal_oak",
+  badge: "Premium Pick"
+},
+"royal_oak_two_tone_rose": {
+  id: "royal_oak_two_tone_rose",
+  name: "Two-Tone Rose Gold Royal Oak",
+  price: 110,
+  description: "A refined two-tone Royal Oak featuring brushed stainless steel paired with rose gold accents and a clean white textured dial. Perfect balance of bold and classic.",
+  images: ["royal_oak_two_tone_rose_main.jpeg"],
+  stock: 2,
+  reviews: 19,
+  sold: 8,
+  category: "royal_oak",
+  badge: "Premium Pick"
+},
 };
 
 /* =============================================
