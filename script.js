@@ -499,6 +499,42 @@ const products = {
   category: "royal_oak",
   badge: "Premium Pick"
 },
+   "cartier_santos_silver_white": {
+  id: "cartier_santos_silver_white",
+  name: "Cartier Santos Silver White Dial",
+  price: 120,
+  description: "Iconic Cartier Santos design featuring a clean white dial with bold Roman numerals and signature blue hands. Finished with a brushed stainless steel case and screw bracelet for a modern luxury look.",
+  images: ["cartier_santos_silver_white_main.jpeg"],
+  stock: 3,
+  reviews: 32,
+  sold: 14,
+  category: "cartier",
+  badge: "Timeless"
+},
+   "cartier_santos_silver_blue": {
+  id: "cartier_santos_silver_blue",
+  name: "Cartier Santos Blue Dial",
+  price: 120,
+  description: "Iconic Cartier Santos design featuring a deep blue sunburst dial with bold Roman numerals and polished steel finish. A perfect mix of modern luxury and timeless design.",
+  images: ["cartier_santos_silver_blue_main.jpeg"],
+  stock: 3,
+  reviews: 36,
+  sold: 15,
+  category: "cartier",
+  badge: "Hot"
+},
+   "cartier_santos_silver_green": {
+  id: "cartier_santos_silver_green",
+  name: "Cartier Santos Green Dial",
+  price: 120,
+  description: "Modern Cartier Santos design featuring a rich green sunburst dial, bold Roman numerals, and polished stainless steel finish. A sharp luxury piece with standout color and timeless style.",
+  images: ["cartier_santos_silver_green_main.jpeg"],
+  stock: 3,
+  reviews: 30,
+  sold: 12,
+  category: "cartier",
+  badge: "Hot"
+},
 };
 
 /* =============================================
