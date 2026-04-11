@@ -523,6 +523,18 @@ const products = {
   category: "cartier",
   badge: "Hot"
 },
+   "cartier_santos_gold_white": {
+  id: "cartier_santos_gold_white",
+  name: "Cartier Santos Gold White Dial",
+  price: 120,
+  description: "Full gold Cartier Santos featuring a clean white dial with bold Roman numerals and signature blue hands. A high-impact luxury piece built to stand out with timeless elegance.",
+  images: ["cartier_santos_gold_white_main.jpeg"],
+  stock: 2,
+  reviews: 28,
+  sold: 11,
+  category: "cartier",
+  badge: "Premium"
+},
    "cartier_santos_silver_green": {
   id: "cartier_santos_silver_green",
   name: "Cartier Santos Green Dial",
