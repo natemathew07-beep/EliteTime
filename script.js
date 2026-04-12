@@ -1,4 +1,4 @@
-/* =============================================
+  /* =============================================
    ELITE TIME — MAIN SCRIPT
    ============================================= */
 
@@ -1059,10 +1059,10 @@ const lineTotal = (p.price * item.quantity) + boxKitTotal;
       localStorage.removeItem("eliteTimeCart");
       updateCartCount();
     })
-    .catch(err => {
-      alert("Failed to send order. Check console for details.");
-      console.error(err);
-    });
+.catch(err => {
+  console.error("EmailJS full error:", err);
+  alert("Failed to send order: " + (err?.text || err?.message || JSON.stringify(err)));
+});
 }
 
 /* =============================================
