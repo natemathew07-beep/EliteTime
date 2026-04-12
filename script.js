@@ -1022,7 +1022,7 @@ const lineTotal = (p.price * item.quantity) + boxKitTotal;
     order_summary: orderSummary, order_total: `$${total}`
   };
 
-  emailjs.send("service_sn6xfli", "template_j170iq5", templateParams)
+  emailjs.send("service_3whl1kl", "template_j170iq5", templateParams)
     .then(() => {
       const checkoutPage = document.getElementById("checkoutPage");
       const confirmationPage = document.getElementById("confirmationPage");
