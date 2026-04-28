@@ -559,6 +559,30 @@ const products = {
   category: "patek",
   badge: "Hot"
 },
+  "patek_nautilus_white_dial": {
+  id: "patek_nautilus_white_dial",
+  name: "Patek Nautilus White Dial 5711",
+  price: 230,
+  description: "Clean Nautilus design featuring a crisp white horizontal textured dial, polished stainless steel case, and integrated bracelet. A minimal yet powerful luxury piece known for its timeless look and versatility.",
+  images: ["patek_nautilus_white_dial_main.jpeg"],
+  stock: 3,
+  reviews: 14,
+  sold: 7,
+  category: "patek",
+  badge: "Classic"
+},
+  "patek_nautilus_black_dial": {
+  id: "patek_nautilus_black_dial",
+  name: "Patek Nautilus Black Dial 5711",
+  price: 230,
+  description: "Classic Nautilus design featuring a deep black horizontal textured dial, polished stainless steel case, and integrated bracelet. A timeless luxury piece with a bold and versatile look.",
+  images: ["patek_nautilus_black_dial_main.jpeg"],
+  stock: 4,
+  reviews: 22,
+  sold: 11,
+  category: "patek",
+  badge: "Best Seller"
+},
 };
 
 /* =============================================
