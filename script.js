@@ -547,6 +547,18 @@ const products = {
   category: "cartier",
   badge: "Hot"
 },
+  "patek_nautilus_tiffany_blue": {
+  id: "patek_nautilus_tiffany_blue",
+  name: "Patek Nautilus Tiffany Blue 5711",
+  price: 90,
+  description: "Iconic Nautilus design featuring the rare Tiffany blue dial with horizontal texture, sleek stainless steel case, and integrated bracelet. A bold luxury statement piece known for its exclusivity and clean aesthetic.",
+  images: ["patek_nautilus_tiffany_blue_main.jpeg"],
+  stock: 2,
+  reviews: 18,
+  sold: 9,
+  category: "patek",
+  badge: "Hot"
+},
 };
 
 /* =============================================
