@@ -1155,3 +1155,32 @@ body.light-mode .mobile-menu-overlay {
   color: #d4af37;
   font-weight: 800;
 }
+
+.purchase-toast {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 99997;
+  width: min(330px, calc(100% - 48px));
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(12,12,16,0.94);
+  border: 1px solid rgba(212,175,55,0.24);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.38);
+  backdrop-filter: blur(16px);
+  color: var(--text);
+  transform: translateY(30px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.35s ease;
+  font-size: 13px;
+}
+
+.purchase-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.purchase-toast strong {
+  color: #d4af37;
+}
