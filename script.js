@@ -1069,7 +1069,7 @@ function renderCheckoutSummary() {
     html += `
       <div class="checkout-summary-item">
         <span>
-          ${p.name} × ${item.quantity}
+          ${p.name}${item.variant ? ` (${item.variant})` : ""} × ${item.quantity}
           ${item.boxKit ? `<br><small class="checkout-addon">Watch Box Kit × ${item.quantity}</small>` : ""}
         </span>
         <span>$${lineTotal}</span>
