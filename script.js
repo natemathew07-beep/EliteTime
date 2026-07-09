@@ -982,6 +982,30 @@ function renderProductPage() {
     };
   }
 
+    const stickyAtc = document.getElementById("stickyAtc");
+  const stickyName = document.getElementById("stickyProductName");
+  const stickyPrice = document.getElementById("stickyProductPrice");
+  const stickyBtn = document.getElementById("stickyAddToCartBtn");
+
+  if (stickyAtc && stickyName && stickyPrice && stickyBtn) {
+    stickyName.textContent = product.name;
+    stickyPrice.textContent = `$${product.price}`;
+
+    window.addEventListener("scroll", () => {
+      stickyAtc.classList.toggle("show", window.scrollY > 500);
+    });
+
+    stickyBtn.onclick = () => {
+      const selectedCard = document.querySelector(".variant-card.selected");
+
+      if (selectedCard) {
+        addToCart(product.id, selectedCard.dataset.name, selectedCard.dataset.image);
+      } else {
+        addToCart(product.id);
+      }
+    };
+  }
+
   document.title = `${product.name} — Elite Time`;
   renderUpsells(product.id);
 }
