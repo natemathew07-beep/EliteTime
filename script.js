@@ -618,9 +618,22 @@ function normalizeCart(cart) {
     return Object.entries(counts).map(([id, quantity]) => ({
       id,
       quantity,
-      boxKit: false
+      boxKit: false,
+      variant: null,
+      variantImage: null
     }));
   }
+
+  return cart
+    .filter(item => item && typeof item.id === "string")
+    .map(item => ({
+      id: item.id,
+      quantity: Number(item.quantity) > 0 ? Number(item.quantity) : 1,
+      boxKit: Boolean(item.boxKit),
+      variant: item.variant || null,
+      variantImage: item.variantImage || null
+    }));
+}
 
   return cart
     .filter(item => item && typeof item.id === "string")
@@ -853,7 +866,11 @@ function renderProductPage() {
 
   const product = products[productId];
 
-  const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const setEl = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  };
+
   setEl("productName", product.name);
   setEl("productDescription", product.description);
   setEl("productPrice", `$${product.price}`);
@@ -861,46 +878,57 @@ function renderProductPage() {
   setEl("reviewCount", `(${product.reviews} reviews)`);
 
   const mainImg = document.getElementById("mainProductImage");
-  if (mainImg) { mainImg.src = product.images[0]; mainImg.alt = product.name; }
+  if (mainImg) {
+    mainImg.src = product.images[0];
+    mainImg.alt = product.name;
+  }
 
   const thumbs = document.getElementById("productThumbs");
   if (thumbs) {
     thumbs.innerHTML = "";
+
     product.images.forEach((imgSrc, index) => {
       const thumb = document.createElement("img");
       thumb.src = imgSrc;
       thumb.alt = product.name;
       thumb.className = "product-thumb" + (index === 0 ? " active-thumb" : "");
       thumb.onerror = function() { this.remove(); };
+
       thumb.addEventListener("click", () => {
         if (mainImg) mainImg.src = imgSrc;
         document.querySelectorAll(".product-thumb").forEach(t => t.classList.remove("active-thumb"));
         thumb.classList.add("active-thumb");
       });
+
       thumbs.appendChild(thumb);
     });
   }
 
-    const variantWrap = document.getElementById("variantWrap");
+  const variantWrap = document.getElementById("variantWrap");
 
-  if (variantWrap && product.variants) {
-    variantWrap.innerHTML = `
-      <label for="variantSelect">Choose Your Colorway</label>
-      <select id="variantSelect" class="variant-select">
-        ${product.variants.map(v => `
-          <option value="${v.image}">${v.name}</option>
-        `).join("")}
-      </select>
-    `;
+  if (variantWrap) {
+    variantWrap.innerHTML = "";
 
-    const variantSelect = document.getElementById("variantSelect");
+    if (product.variants && product.variants.length > 0) {
+      variantWrap.innerHTML = `
+        <label for="variantSelect">Choose Colorway</label>
+        <select id="variantSelect" class="variant-select">
+          ${product.variants.map(v => `
+            <option value="${v.image}">${v.name}</option>
+          `).join("")}
+        </select>
+      `;
 
-    variantSelect.addEventListener("change", () => {
-      if (mainImg) mainImg.src = variantSelect.value;
-    });
+      const variantSelect = document.getElementById("variantSelect");
+
+      variantSelect.addEventListener("change", () => {
+        if (mainImg) mainImg.src = variantSelect.value;
+      });
+    }
   }
 
   const addBtn = document.getElementById("addToCartBtn");
+
   if (addBtn) {
     addBtn.onclick = () => {
       const variantSelect = document.getElementById("variantSelect");
@@ -918,7 +946,6 @@ function renderProductPage() {
   document.title = `${product.name} — Elite Time`;
   renderUpsells(product.id);
 }
-
 /* =============================================
    UPSELL GRID — FIX: includes img-wrap + overlay
    ============================================= */
