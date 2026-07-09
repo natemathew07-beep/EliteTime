@@ -583,6 +583,32 @@ const products = {
   category: "patek",
   badge: "Best Seller"
 },
+  {
+  id: "swatch-ap-complete-set",
+  name: "Swatch × AP Complete Collector Set",
+  price: 115,
+  category: "Luxury Accessories",
+  image: "otto-rosso.jpg",
+  variants: [
+    { name: "Otto Rosso", image: "otto-rosso.jpg" },
+    { name: "Huit Blanc", image: "huit-blanc.jpg" },
+    { name: "Green Eight", image: "green-eight.jpg" },
+    { name: "Blaue Acht", image: "blaue-acht.jpg" },
+    { name: "Ocho Negro", image: "ocho-negro.jpg" },
+    { name: "Lan Ba", image: "lan-ba.jpg" },
+    { name: "OTG ROZ", image: "otg-roz.jpg" },
+    { name: "Orenji Hachi", image: "orenji-hachi.jpg" }
+  ],
+  badge: "NEW",
+  description: "Complete Swatch × AP collector set including the watch, matching band, presentation box, and papers.",
+  details: [
+    "Swatch × AP Watch Included",
+    "Matching Band Included",
+    "Box Included",
+    "Papers Included"
+  ],
+  inStock: true
+},
 };
 
 /* =============================================
