@@ -588,7 +588,7 @@ const products = {
     name: "Swatch AP Complete Set",
     price: 115,
     description: "Complete Swatch AP set including the watch, matching band, box, and papers included for free.",
-    images: ["swatch-ap-set.jpg"],
+    images: ["swatch-ap-main.jpg"],
     stock: 8,
     reviews: 42,
     sold: 17,
