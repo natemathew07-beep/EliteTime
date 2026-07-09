@@ -1476,4 +1476,33 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshCursorTargets();
     initScrollReveal();
   }, 500);
+
+    const toast = document.getElementById("purchaseToast");
+
+  if (toast) {
+    const names = ["Jason", "Marcus", "Daniel", "Ryan", "Chris", "Alex"];
+    const cities = ["Austin, TX", "Dallas, TX", "Houston, TX", "Miami, FL", "Atlanta, GA"];
+    const items = Object.values(products).map(p => p.name);
+
+    function showPurchaseToast() {
+      const name = names[Math.floor(Math.random() * names.length)];
+      const city = cities[Math.floor(Math.random() * cities.length)];
+      const item = items[Math.floor(Math.random() * items.length)];
+
+      toast.innerHTML = `
+        <div>🟢 <strong>${name}</strong> from ${city}</div>
+        <div>Purchased ${item}</div>
+        <small>Just now</small>
+      `;
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4500);
+    }
+
+    setTimeout(showPurchaseToast, 3500);
+    setInterval(showPurchaseToast, 18000);
+  }
 });
