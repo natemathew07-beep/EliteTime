@@ -1341,7 +1341,7 @@ function initCursor() {
 function refreshCursorTargets() {
   const ring = document.getElementById("cursorRing");
   if (!ring) return;
-  const selector = "a, button, .watch-card, .trust-card, .filter-btn, .payment-option, .product-thumb, .nav-icon-btn";
+  const selector = "a, button, .watch-card, .trust-card, .filter-btn, .payment-option, .product-thumb, .nav-icon-btn, .upsell-close, .btn-primary";
   document.querySelectorAll(selector).forEach(el => {
     if (!el.dataset.cursorBound) {
       el.addEventListener("mouseenter", () => ring.classList.add("hover"));
