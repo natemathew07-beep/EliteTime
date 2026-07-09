@@ -1122,7 +1122,7 @@ function placeOrder() {
     const boxKitTotal = item.boxKit ? 35 * item.quantity : 0;
 const lineTotal = (p.price * item.quantity) + boxKitTotal;
     total += lineTotal;
-    orderSummary += `${p.name} x${item.quantity}${item.boxKit ? " + Watch Box Kit" : ""} - $${lineTotal}\n`;
+    orderSummary += `${p.name}${item.variant ? ` (${item.variant})` : ""} x${item.quantity}${item.boxKit ? " + Watch Box Kit" : ""} - $${lineTotal}\n`;
     receiptHtml += `
   <div class="confirmation-receipt-item">
     <span>
