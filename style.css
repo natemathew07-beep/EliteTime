@@ -1066,3 +1066,68 @@ body.light-mode .mobile-menu-overlay {
     height: 120px;
   }
 }
+
+.sticky-atc {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%) translateY(120px);
+  width: min(720px, calc(100% - 32px));
+  background: rgba(12, 12, 16, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99998;
+  opacity: 0;
+  transition: 0.35s ease;
+}
+
+.sticky-atc.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.sticky-atc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sticky-atc-info span {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.sticky-atc-info strong {
+  color: #d4af37;
+  font-size: 18px;
+}
+
+.sticky-atc-btn {
+  border: none;
+  padding: 13px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #d4af37, #f2d27a);
+  color: #111;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (max-width: 520px) {
+  .sticky-atc {
+    bottom: 14px;
+  }
+
+  .sticky-atc-btn {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+}
