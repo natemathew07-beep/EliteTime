@@ -977,11 +977,12 @@ const lineTotal = (product.price * item.quantity) + boxKitTotal;
     const el = document.createElement("div");
     el.className = "cart-item";
     el.innerHTML = `
-  <img src="${product.images[0]}" alt="${product.name}" class="cart-item-image">
+  <img src="${item.variantImage || product.images[0]}" alt="${product.name}" class="cart-item-image">
 
   <div class="cart-item-details">
     <h3>${product.name}</h3>
-    <p>$${product.price} each</p>
+${item.variant ? `<p class="cart-variant">Colorway: ${item.variant}</p>` : ""}
+<p>$${product.price} each</p>
 
     <div class="qty-row">
       <button class="qty-btn minus-btn" data-id="${product.id}">−</button>
