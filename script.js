@@ -604,7 +604,8 @@ const products = {
       { name: "OTG ROZ", image: "otg-roz.jpg" },
       { name: "Orenji Hachi", image: "orenji-hachi.jpg" }
     ]
-  },
+    }
+};
 
 /* =============================================
    CART
@@ -632,17 +633,6 @@ function normalizeCart(cart) {
       boxKit: Boolean(item.boxKit),
       variant: item.variant || null,
       variantImage: item.variantImage || null
-    }));
-}
-
-  return cart
-    .filter(item => item && typeof item.id === "string")
-    .map(item => ({
-      id: item.id,
-      quantity: Number(item.quantity) > 0 ? Number(item.quantity) : 1,
-      boxKit: Boolean(item.boxKit),
-variant: item.variant || null,
-variantImage: item.variantImage || null
     }));
 }
 
