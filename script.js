@@ -583,33 +583,28 @@ const products = {
   category: "patek",
   badge: "Best Seller"
 },
-  {
-  id: "swatch-ap-complete-set",
-  name: "Swatch × AP Complete Collector Set",
-  price: 115,
-  category: "Luxury Accessories",
-  image: "otto-rosso.jpg",
-  variants: [
-    { name: "Otto Rosso", image: "otto-rosso.jpg" },
-    { name: "Huit Blanc", image: "huit-blanc.jpg" },
-    { name: "Green Eight", image: "green-eight.jpg" },
-    { name: "Blaue Acht", image: "blaue-acht.jpg" },
-    { name: "Ocho Negro", image: "ocho-negro.jpg" },
-    { name: "Lan Ba", image: "lan-ba.jpg" },
-    { name: "OTG ROZ", image: "otg-roz.jpg" },
-    { name: "Orenji Hachi", image: "orenji-hachi.jpg" }
-  ],
-  badge: "NEW",
-  description: "Complete Swatch × AP collector set including the watch, matching band, presentation box, and papers.",
-  details: [
-    "Swatch × AP Watch Included",
-    "Matching Band Included",
-    "Box Included",
-    "Papers Included"
-  ],
-  inStock: true
-},
-};
+   "swatch_ap_complete_set": {
+    id: "swatch_ap_complete_set",
+    name: "Swatch AP Complete Set",
+    price: 115,
+    description: "Complete Swatch AP set including the watch, matching band, box, and papers included for free.",
+    images: ["otto-rosso.jpg"],
+    stock: 8,
+    reviews: 42,
+    sold: 17,
+    category: "swatch_ap",
+    badge: "New",
+    variants: [
+      { name: "Otto Rosso", image: "otto-rosso.jpg" },
+      { name: "Huit Blanc", image: "huit-blanc.jpg" },
+      { name: "Green Eight", image: "green-eight.jpg" },
+      { name: "Blaue Acht", image: "blaue-acht.jpg" },
+      { name: "Ocho Negro", image: "ocho-negro.jpg" },
+      { name: "Lan Ba", image: "lan-ba.jpg" },
+      { name: "OTG ROZ", image: "otg-roz.jpg" },
+      { name: "Orenji Hachi", image: "orenji-hachi.jpg" }
+    ]
+  },
 
 /* =============================================
    CART
@@ -632,7 +627,9 @@ function normalizeCart(cart) {
     .map(item => ({
       id: item.id,
       quantity: Number(item.quantity) > 0 ? Number(item.quantity) : 1,
-      boxKit: Boolean(item.boxKit)
+      boxKit: Boolean(item.boxKit),
+variant: item.variant || null,
+variantImage: item.variantImage || null
     }));
 }
 
@@ -679,14 +676,26 @@ function updateCartCount() {
   });
 }
 
-function addToCart(productId) {
+function addToCart(productId, selectedVariant = null, selectedImage = null) {
   const cart = getCart();
-  const existing = cart.find(item => item.id === productId);
+
+  const existing = cart.find(item =>
+    item.id === productId &&
+    item.variant === selectedVariant
+  );
+
   if (existing) {
     existing.quantity += 1;
   } else {
-    cart.push({ id: productId, quantity: 1, boxKit: false });
+    cart.push({
+      id: productId,
+      quantity: 1,
+      boxKit: false,
+      variant: selectedVariant,
+      variantImage: selectedImage
+    });
   }
+
   saveCart(cart);
   updateCartCount();
   animateAddToCartButton(document.getElementById("addToCartBtn"));
@@ -872,8 +881,39 @@ function renderProductPage() {
     });
   }
 
+    const variantWrap = document.getElementById("variantWrap");
+
+  if (variantWrap && product.variants) {
+    variantWrap.innerHTML = `
+      <label for="variantSelect">Choose Your Colorway</label>
+      <select id="variantSelect" class="variant-select">
+        ${product.variants.map(v => `
+          <option value="${v.image}">${v.name}</option>
+        `).join("")}
+      </select>
+    `;
+
+    const variantSelect = document.getElementById("variantSelect");
+
+    variantSelect.addEventListener("change", () => {
+      if (mainImg) mainImg.src = variantSelect.value;
+    });
+  }
+
   const addBtn = document.getElementById("addToCartBtn");
-  if (addBtn) addBtn.onclick = () => addToCart(product.id);
+  if (addBtn) {
+    addBtn.onclick = () => {
+      const variantSelect = document.getElementById("variantSelect");
+
+      if (variantSelect) {
+        const selectedVariant = variantSelect.options[variantSelect.selectedIndex].text;
+        const selectedImage = variantSelect.value;
+        addToCart(product.id, selectedVariant, selectedImage);
+      } else {
+        addToCart(product.id);
+      }
+    };
+  }
 
   document.title = `${product.name} — Elite Time`;
   renderUpsells(product.id);
