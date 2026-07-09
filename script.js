@@ -868,16 +868,26 @@ function renderProductPage() {
   setEl("reviewCount", `(${product.reviews} reviews)`);
 
   const mainImg = document.getElementById("mainProductImage");
+
   if (mainImg) {
     mainImg.src = product.images[0];
     mainImg.alt = product.name;
   }
 
   const thumbs = document.getElementById("productThumbs");
+
   if (thumbs) {
     thumbs.innerHTML = "";
 
-    product.images.forEach((imgSrc, index) => {
+    const galleryImages = [...product.images];
+
+    if (product.variants) {
+      product.variants.forEach(v => {
+        if (!galleryImages.includes(v.image)) galleryImages.push(v.image);
+      });
+    }
+
+    galleryImages.forEach((imgSrc, index) => {
       const thumb = document.createElement("img");
       thumb.src = imgSrc;
       thumb.alt = product.name;
@@ -885,7 +895,14 @@ function renderProductPage() {
       thumb.onerror = function() { this.remove(); };
 
       thumb.addEventListener("click", () => {
-        if (mainImg) mainImg.src = imgSrc;
+        if (mainImg) {
+          mainImg.classList.add("image-fade");
+          setTimeout(() => {
+            mainImg.src = imgSrc;
+            mainImg.classList.remove("image-fade");
+          }, 150);
+        }
+
         document.querySelectorAll(".product-thumb").forEach(t => t.classList.remove("active-thumb"));
         thumb.classList.add("active-thumb");
       });
@@ -901,19 +918,53 @@ function renderProductPage() {
 
     if (product.variants && product.variants.length > 0) {
       variantWrap.innerHTML = `
-        <label for="variantSelect">Choose Colorway</label>
-        <select id="variantSelect" class="variant-select">
-          ${product.variants.map(v => `
-            <option value="${v.image}">${v.name}</option>
+        <div class="variant-title">Choose Colorway</div>
+
+        <div class="variant-card-grid">
+          ${product.variants.map((v, index) => `
+            <button class="variant-card ${index === 0 ? "selected" : ""}" 
+              data-image="${v.image}" 
+              data-name="${v.name}">
+              <img src="${v.image}" alt="${v.name}">
+              <span>${v.name}</span>
+            </button>
           `).join("")}
-        </select>
+        </div>
       `;
 
-      const variantSelect = document.getElementById("variantSelect");
+      document.querySelectorAll(".variant-card").forEach(card => {
+        card.addEventListener("click", () => {
+          document.querySelectorAll(".variant-card").forEach(c => c.classList.remove("selected"));
+          card.classList.add("selected");
 
-      variantSelect.addEventListener("change", () => {
-        if (mainImg) mainImg.src = variantSelect.value;
+          const selectedImage = card.dataset.image;
+
+          if (mainImg) {
+            mainImg.classList.add("image-fade");
+            setTimeout(() => {
+              mainImg.src = selectedImage;
+              mainImg.classList.remove("image-fade");
+            }, 150);
+          }
+        });
       });
+    }
+  }
+
+  const includedBox = document.getElementById("includedBox");
+
+  if (includedBox) {
+    if (product.category === "swatch_ap") {
+      includedBox.innerHTML = `
+        <div class="included-card">
+          <div><span>✓</span> Swatch AP Watch</div>
+          <div><span>✓</span> Matching Band</div>
+          <div><span>✓</span> Box Included</div>
+          <div><span>✓</span> Papers Included</div>
+        </div>
+      `;
+    } else {
+      includedBox.innerHTML = "";
     }
   }
 
@@ -921,12 +972,10 @@ function renderProductPage() {
 
   if (addBtn) {
     addBtn.onclick = () => {
-      const variantSelect = document.getElementById("variantSelect");
+      const selectedCard = document.querySelector(".variant-card.selected");
 
-      if (variantSelect) {
-        const selectedVariant = variantSelect.options[variantSelect.selectedIndex].text;
-        const selectedImage = variantSelect.value;
-        addToCart(product.id, selectedVariant, selectedImage);
+      if (selectedCard) {
+        addToCart(product.id, selectedCard.dataset.name, selectedCard.dataset.image);
       } else {
         addToCart(product.id);
       }
