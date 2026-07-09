@@ -1007,14 +1007,14 @@ ${item.variant ? `<p class="cart-variant">Colorway: ${item.variant}</p>` : ""}
       <button class="qty-btn plus-btn" data-id="${product.id}">+</button>
     </div>
 
-    ${product.category !== "moissanite" ? `
+    ${product.category !== "moissanite" && product.category !== "swatch_ap" ? `
   <label class="box-kit-row">
     <input type="checkbox" class="box-kit-toggle" data-id="${product.id}" ${item.boxKit ? "checked" : ""}>
     <span>Add Watch Box Kit +$35</span>
   </label>
 ` : `
   <div class="box-kit-included">
-    <span>Box & Papers Included</span>
+    <span>Box, Papers & Band Included Free</span>
   </div>
 `}
 
