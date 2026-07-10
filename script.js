@@ -1520,5 +1520,29 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       el.classList.add("lux-visible");
     }, 120 + index * 45);
-  });
+
+      const particlesWrap = document.getElementById("luxuryParticles");
+
+  if (particlesWrap && !particlesWrap.dataset.loaded) {
+    particlesWrap.dataset.loaded = "true";
+
+    for (let i = 0; i < 34; i++) {
+      const particle = document.createElement("span");
+      particle.className = "gold-particle";
+
+      const size = 2 + Math.random() * 5;
+      const opacity = 0.12 + Math.random() * 0.38;
+      const drift = -40 + Math.random() * 80;
+
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.animationDuration = `${18 + Math.random() * 22}s`;
+      particle.style.animationDelay = `${Math.random() * 18}s`;
+      particle.style.setProperty("--dust-opacity", opacity);
+      particle.style.setProperty("--drift", `${drift}px`);
+
+      particlesWrap.appendChild(particle);
+    }
+  }X
 });
