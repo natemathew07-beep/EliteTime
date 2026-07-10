@@ -1517,8 +1517,8 @@ document.addEventListener("DOMContentLoaded", () => {
       el.style.setProperty("--delay", `${Math.min(index * 0.04, 0.35)}s`);
     }
 
-    setTimeout(() => {
+       setTimeout(() => {
       el.classList.add("lux-visible");
     }, 120 + index * 45);
-
+  });
 });
