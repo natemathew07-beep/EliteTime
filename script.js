@@ -1425,6 +1425,32 @@ function refreshCursorTargets() {
 }
 
 /* =============================================
+   LUXURY GOLD DUST
+   ============================================= */
+function initLuxuryParticles() {
+  const wrap = document.getElementById("luxuryParticles");
+  if (!wrap) return;
+
+  wrap.innerHTML = "";
+
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement("span");
+    p.className = "gold-particle";
+
+    const size = Math.random() * 4 + 2;
+
+    p.style.left = Math.random() * 100 + "%";
+    p.style.top = Math.random() * 100 + "%";
+    p.style.width = size + "px";
+    p.style.height = size + "px";
+    p.style.animationDuration = (18 + Math.random() * 12) + "s";
+    p.style.animationDelay = (Math.random() * 20) + "s";
+
+    wrap.appendChild(p);
+  }
+}
+
+/* =============================================
    SCROLL REVEAL
    ============================================= */
 function initScrollReveal() {
@@ -1463,8 +1489,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initProductFilters();
 
   // Visual enhancements
-  initCursor();
-  initScrollReveal();
+initCursor();
+initScrollReveal();
+initLuxuryParticles();
 
   // Hero elements above fold — reveal immediately without waiting for scroll
   document.querySelectorAll(".hero .reveal").forEach((el, i) => {
