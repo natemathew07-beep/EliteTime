@@ -1365,3 +1365,38 @@ footer {
   position: relative;
   z-index: 2;
 }
+
+.luxury-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.gold-particle {
+  position: absolute;
+  border-radius: 999px;
+  width: 6px !important;
+  height: 6px !important;
+  background: #d4af37;
+  box-shadow: 0 0 18px #d4af37;
+  opacity: 0.85;
+  animation: luxuryGoldFloat 8s linear infinite;
+}
+
+@keyframes luxuryGoldFloat {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+}
