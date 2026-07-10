@@ -1199,7 +1199,7 @@ const lineTotal = (p.price * item.quantity) + boxKitTotal;
     receiptHtml += `
   <div class="confirmation-receipt-item">
     <span>
-      ${p.name} × ${item.quantity}
+      ${p.name}${item.variant ? ` (${item.variant})` : ""} × ${item.quantity}
       ${item.boxKit ? `<br><small class="checkout-addon">Watch Box Kit × ${item.quantity}</small>` : ""}
     </span>
     <span>$${lineTotal}</span>
@@ -1217,6 +1217,12 @@ const lineTotal = (p.price * item.quantity) + boxKitTotal;
 
   emailjs.send("service_3whl1kl", "template_j170iq5", templateParams)
     .then(() => {
+            const orderNumber = `ET-${Date.now().toString().slice(-6)}`;
+      const confirmationOrderNumber = document.getElementById("confirmationOrderNumber");
+
+      if (confirmationOrderNumber) {
+        confirmationOrderNumber.textContent = orderNumber;
+      }
       const checkoutPage = document.getElementById("checkoutPage");
       const confirmationPage = document.getElementById("confirmationPage");
       const confirmationReceipt = document.getElementById("confirmationReceipt");
