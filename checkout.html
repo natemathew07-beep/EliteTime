@@ -103,19 +103,99 @@
   </div>
 </div>
 
-<!-- Confirmation Overlay -->
+<!-- Premium Confirmation Overlay -->
 <div id="confirmationPage" class="confirmation-page" style="display:none;">
-  <div class="confirmation-card">
+  <div class="confirmation-card premium-confirmation-card">
+
+    <div class="confirmation-confetti" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <div class="confirmation-icon" id="confirmationIcon">
       <i class="fa-solid fa-check"></i>
     </div>
-    <h2>Order Received</h2>
-    <p>Thank you for shopping with Elite Time.</p>
-    <p style="margin-top:6px;">We'll review your order and reach out shortly with payment details.</p>
+
+    <div class="confirmation-eyebrow">Elite Time Order Confirmed</div>
+
+    <h2>Thank You</h2>
+
+    <p class="confirmation-message">
+      Your order has been received and is now being reviewed.
+    </p>
+
+    <div class="confirmation-order-meta">
+      <div>
+        <span>Order Number</span>
+        <strong id="confirmationOrderNumber">ET-000000</strong>
+      </div>
+
+      <div>
+        <span>Estimated Delivery</span>
+        <strong>5–7 Business Days</strong>
+      </div>
+    </div>
+
+    <div class="confirmation-timeline">
+      <div class="timeline-item completed">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+          <strong>Order Received</strong>
+          <span>Your order details have been submitted.</span>
+        </div>
+      </div>
+
+      <div class="timeline-item active">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-credit-card"></i>
+        </div>
+        <div>
+          <strong>Payment Instructions</strong>
+          <span>We’ll contact you with Cash App or Zelle instructions.</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-box"></i>
+        </div>
+        <div>
+          <strong>Preparing Shipment</strong>
+          <span>Your watch will be inspected and carefully packaged.</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
+        <div>
+          <strong>Shipped</strong>
+          <span>Tracking information will be sent once available.</span>
+        </div>
+      </div>
+    </div>
+
     <div class="confirmation-receipt" id="confirmationReceipt"></div>
+
+    <div class="confirmation-support">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Questions about your order? Contact the Elite Time concierge.</span>
+    </div>
+
     <div class="confirmation-actions">
-      <a href="index.html" class="btn-primary" onclick="document.body.style.overflow='auto'">
-        Back Home
+      <a href="products.html" class="btn-primary">
+        Continue Shopping
+      </a>
+
+      <a href="support.html" class="btn-ghost">
+        Contact Concierge
       </a>
     </div>
   </div>
