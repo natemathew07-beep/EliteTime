@@ -1544,5 +1544,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
       particlesWrap.appendChild(particle);
     }
-  }X
+  }
 });
