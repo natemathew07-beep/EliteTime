@@ -1315,3 +1315,53 @@ footer {
   position: relative;
   z-index: 2;
 }
+
+.luxury-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.gold-particle {
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(226,195,132,0.95), rgba(201,169,110,0.18), transparent 70%);
+  box-shadow: 0 0 14px rgba(201,169,110,0.35);
+  opacity: 0;
+  animation: luxuryGoldFloat linear infinite;
+}
+
+@keyframes luxuryGoldFloat {
+  0% {
+    transform: translateY(25px) scale(0.6);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translateY(-18px) translateX(12px) scale(1);
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translateY(-55px) translateX(-10px) scale(0.75);
+    opacity: 0;
+  }
+}
+
+.navbar,
+.hero,
+.section,
+.products-page-section,
+.product-layout,
+.cart-wrap,
+.checkout-page-wrap,
+footer {
+  position: relative;
+  z-index: 2;
+}
