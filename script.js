@@ -1505,4 +1505,20 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(showPurchaseToast, 3500);
     setInterval(showPurchaseToast, 18000);
   }
+
+    const luxuryRevealItems = document.querySelectorAll(
+    ".logo, .hero-heading, .hero-sub, .hero-ctas, .hero-stats, .section-title, .section-sub, .watch-card, .product-gallery-wrap, .product-info, .cart-item, .checkout-card"
+  );
+
+  luxuryRevealItems.forEach((el, index) => {
+    el.classList.add("lux-fade");
+
+    if (el.classList.contains("watch-card")) {
+      el.style.setProperty("--delay", `${Math.min(index * 0.04, 0.35)}s`);
+    }
+
+    setTimeout(() => {
+      el.classList.add("lux-visible");
+    }, 120 + index * 45);
+  });
 });
