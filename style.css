@@ -1275,3 +1275,43 @@ body.light-mode .mobile-menu-overlay {
     opacity: 0;
   }
 }
+
+.luxury-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 12% 80%, rgba(201,169,110,0.22) 0 1px, transparent 2px),
+    radial-gradient(circle at 28% 35%, rgba(226,195,132,0.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 44% 70%, rgba(201,169,110,0.14) 0 1px, transparent 2px),
+    radial-gradient(circle at 62% 20%, rgba(226,195,132,0.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 60%, rgba(201,169,110,0.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 90% 30%, rgba(226,195,132,0.14) 0 1px, transparent 2px);
+  animation: goldDustDrift 18s linear infinite;
+  opacity: 0.55;
+}
+
+@keyframes goldDustDrift {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.navbar,
+.hero,
+.section,
+.products-page-section,
+.product-layout,
+.cart-wrap,
+.checkout-page-wrap,
+footer {
+  position: relative;
+  z-index: 2;
+}
