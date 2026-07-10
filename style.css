@@ -1716,3 +1716,40 @@ body.light-mode .navbar.scrolled {
     width: calc(100% - 24px);
   }
 }
+
+/* ============================================
+   LUXURY MOUSE SPOTLIGHT
+   ============================================ */
+
+.luxury-spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(
+      420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(201,169,110,0.08),
+      rgba(201,169,110,0.025) 35%,
+      transparent 72%
+    );
+  transition: opacity 0.25s ease;
+}
+
+.navbar,
+.hero,
+.section,
+.products-page-section,
+.product-layout,
+.cart-wrap,
+.checkout-page-wrap,
+footer {
+  position: relative;
+  z-index: 2;
+}
+
+@media (hover: none) {
+  .luxury-spotlight {
+    display: none;
+  }
+}
