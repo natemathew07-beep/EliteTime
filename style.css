@@ -1898,3 +1898,261 @@ footer {
     flex-wrap: wrap;
   }
 }
+
+/* ============================================
+   PREMIUM ORDER CONFIRMATION
+   ============================================ */
+
+.premium-confirmation-card {
+  position: relative;
+  width: min(680px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 48px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(201,169,110,0.12),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.045),
+      rgba(255,255,255,0.015)
+    ),
+    var(--bg-card);
+}
+
+.confirmation-eyebrow {
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.confirmation-message {
+  max-width: 470px;
+  margin: 0 auto;
+}
+
+.confirmation-order-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.confirmation-order-meta > div {
+  padding: 18px;
+  border: 1px solid rgba(201,169,110,0.18);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.025);
+}
+
+.confirmation-order-meta span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.confirmation-order-meta strong {
+  color: var(--gold-bright);
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.confirmation-timeline {
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-2);
+  text-align: left;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  padding-bottom: 22px;
+  opacity: 0.48;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 38px;
+  bottom: 4px;
+  left: 20px;
+  width: 1px;
+  background: rgba(201,169,110,0.20);
+}
+
+.timeline-item.completed,
+.timeline-item.active {
+  opacity: 1;
+}
+
+.timeline-icon {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+}
+
+.timeline-item.completed .timeline-icon {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: #080810;
+}
+
+.timeline-item.active .timeline-icon {
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 22px rgba(201,169,110,0.18);
+}
+
+.timeline-item strong {
+  display: block;
+  margin-top: 1px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+.timeline-item span {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.confirmation-support {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.confirmation-support i {
+  color: var(--gold);
+}
+
+.confirmation-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.confirmation-actions .btn-primary,
+.confirmation-actions .btn-ghost {
+  justify-content: center;
+}
+
+/* Subtle gold celebration particles */
+.confirmation-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confirmation-confetti span {
+  position: absolute;
+  top: -18px;
+  width: 5px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--gold);
+  opacity: 0;
+  animation: confirmationConfetti 2.4s ease-out forwards;
+}
+
+.confirmation-confetti span:nth-child(1) {
+  left: 18%;
+  animation-delay: 0.15s;
+}
+
+.confirmation-confetti span:nth-child(2) {
+  left: 31%;
+  animation-delay: 0.3s;
+}
+
+.confirmation-confetti span:nth-child(3) {
+  left: 44%;
+  animation-delay: 0.1s;
+}
+
+.confirmation-confetti span:nth-child(4) {
+  left: 59%;
+  animation-delay: 0.35s;
+}
+
+.confirmation-confetti span:nth-child(5) {
+  left: 72%;
+  animation-delay: 0.2s;
+}
+
+.confirmation-confetti span:nth-child(6) {
+  left: 84%;
+  animation-delay: 0.4s;
+}
+
+@keyframes confirmationConfetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translateY(330px) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .premium-confirmation-card {
+    padding: 34px 20px;
+  }
+
+  .confirmation-order-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .confirmation-actions {
+    flex-direction: column;
+  }
+
+  .confirmation-actions a {
+    width: 100%;
+  }
+}
