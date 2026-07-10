@@ -1233,3 +1233,45 @@ body.light-mode .mobile-menu-overlay {
 .watch-card.lux-fade {
   transition-delay: var(--delay, 0s);
 }
+
+.luxury-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.gold-particle {
+  position: absolute;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(226,195,132,0.95), rgba(201,169,110,0.15), transparent 70%);
+  box-shadow: 0 0 16px rgba(201,169,110,0.35);
+  animation: luxuryDustFloat linear infinite;
+  opacity: 0;
+}
+
+@keyframes luxuryDustFloat {
+  0% {
+    transform: translate3d(0, 110vh, 0) scale(0.4);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: var(--dust-opacity);
+  }
+
+  50% {
+    transform: translate3d(var(--drift), 45vh, 0) scale(1);
+    opacity: calc(var(--dust-opacity) * 0.75);
+  }
+
+  85% {
+    opacity: calc(var(--dust-opacity) * 0.45);
+  }
+
+  100% {
+    transform: translate3d(calc(var(--drift) * 1.8), -12vh, 0) scale(0.7);
+    opacity: 0;
+  }
+}
