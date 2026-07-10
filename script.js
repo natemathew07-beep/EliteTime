@@ -1449,6 +1449,18 @@ function initLuxuryParticles() {
     wrap.appendChild(p);
   }
 }
+/* =============================================
+   LUXURY MOUSE SPOTLIGHT
+   ============================================= */
+function initLuxurySpotlight() {
+  const spotlight = document.getElementById("luxurySpotlight");
+  if (!spotlight) return;
+
+  document.addEventListener("mousemove", (e) => {
+    spotlight.style.setProperty("--mouse-x", `${e.clientX}px`);
+    spotlight.style.setProperty("--mouse-y", `${e.clientY}px`);
+  });
+}
 
 /* =============================================
    SCROLL REVEAL
@@ -1492,6 +1504,7 @@ document.addEventListener("DOMContentLoaded", () => {
 initCursor();
 initScrollReveal();
 initLuxuryParticles();
+initLuxurySpotlight();
 
   // Hero elements above fold — reveal immediately without waiting for scroll
   document.querySelectorAll(".hero .reveal").forEach((el, i) => {
